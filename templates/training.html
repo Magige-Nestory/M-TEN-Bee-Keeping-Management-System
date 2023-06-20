@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block title %}
+Register For Training
+{% endblock title %}
+
+
+
+{% block body %}
+ <h3 class="text-center"><span>Register for Training</span> </h3>
+  
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+
+
+</div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+<br>
+<div class="container">
+
+<div class="row">
+
+<div class="col-md-4"></div>
+<div class="col-md-4">
+
+<form action="/training" method="post">
+<div class="form-group">
+
+<label for="Name">Name</label>
+<input type="text" class="form-control" name="Name" id="Name" required>
+</div>
+<br>
+<div class="form-group">    
+    <label for="Preferred Package">Preferred Package</label>                      
+<select  class="form-control" id="" name="Preferred Package"  required>
+        <option selected>Select Package</option>
+    
+        <option value="Basic">Basic</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+      </select>
+ </div>
+<br>
+<div class="form-group">
+
+<label for="Start date">Start date</label>
+<input type="date" class="form-control" name="Start date" id="date" required>
+</div>
+<br>
+
+
+<div class="form-group">
+<label for="num">Cost</label>
+<select  class="form-control" id="Cost" name="Cost"  required>
+    <option selected>pricing</option>
+
+    <option value="5000">Basic 5000</option>
+    <option value="10000">Intermediate 10000</option>
+    <option value="15000">Advanced 15000</option>
+  </select>
+</div>
+  
+  <button type="submit" class="btn btn-success  btn-block">Save Record</button>
+</form>
+<br>
+<br>
+
+</div>
+
+<div class="col-md-4"></div>
+
+</div></div>
+
+
+
+{% endblock body %}
